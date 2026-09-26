@@ -796,7 +796,7 @@ def unlock_expert():
         save_progress()
         app.logger.info("expert_unlock result=success")
         return jsonify(ok=True, count=expert_vault.expert_count())
-    app.logger.info("expert_unlock result=invalid_key")
+    app.logger.info("expert_unlock result=denied")
     return jsonify(ok=False, error="Invalid access key."), 403
 
 

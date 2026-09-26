@@ -46,8 +46,6 @@ python app.py                # http://127.0.0.1:5000
 pip install pytest && pytest -q
 ```
 
-Flask debug mode is off by default; opt in locally with `LLMVAULT_DEBUG=1 python app.py`.
-
 Please make sure `pytest -q` passes before opening a PR.
 
 ## Style
