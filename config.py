@@ -1,5 +1,19 @@
 """Global config for LLMVault."""
 
+import os
+
+
+# --- Debug mode --------------------------------------------------------------
+# Flask's debug mode enables the Werkzeug interactive debugger, which runs
+# arbitrary Python for anyone who can reach the server. It is therefore OFF
+# unless the operator explicitly opts in: set LLMVAULT_DEBUG=1 (or true).
+def debug_enabled(environ=None) -> bool:
+    env = os.environ if environ is None else environ
+    return env.get("LLMVAULT_DEBUG", "").strip().lower() in ("1", "true")
+
+
+DEBUG = debug_enabled()
+
 # --- Branding (single source of truth; changing these renames the whole app) ---
 APP_NAME = "LLMVault"
 APP_EMOJI = "🔐"
